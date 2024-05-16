@@ -7,8 +7,8 @@
   imports = [inputs.nur.hmModules.nur];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
-  home.username = "whs";
-  home.homeDirectory = "/var/home/whs";
+  home.username = "packer";
+  home.homeDirectory = "/home/whs";
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -38,8 +38,6 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
-    alejandra
-    borgmatic
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -84,7 +82,6 @@
     profiles."0" = {
       extraConfig = builtins.readFile (inputs."user.js" + /user.js);
       extensions = with config.nur.repos.rycee.firefox-addons; [
-        keepassxc-browser
         multi-account-containers
         skip-redirect
         ublock-origin
