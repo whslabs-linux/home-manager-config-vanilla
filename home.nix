@@ -73,11 +73,12 @@
   #  /etc/profiles/per-user/whs/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    # EDITOR = "emacs";
+    EDITOR = "vim";
   };
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+  programs.vim.enable = true;
   programs.firefox = {
     enable = true;
     package = pkgs.latest.firefox-nightly-bin;
@@ -91,4 +92,9 @@
       ];
     };
   };
+  home.file.".config/smplayer/smplayer.ini".text = ''
+    [advanced]
+    mplayer_additional_options=--hwdec=nvdec --vo=gpu-next --gpu-context=waylandvk
+    use_mplayer_window=true
+  '';
 }
