@@ -11,6 +11,7 @@
   };
 
   inputs."user.js".url = "github:arkenfox/user.js";
+  inputs.fenix.url = "github:nix-community/fenix";
   inputs.nixpkgs-mozilla.url = "github:mozilla/nixpkgs-mozilla";
   inputs.nur.url = "github:nix-community/nur";
 
@@ -50,5 +51,14 @@
       # to pass through arguments to home.nix
       extraSpecialArgs = {inherit inputs;};
     };
+  };
+
+  nixConfig = {
+    extra-substituters = [
+      "https://nix-community.cachix.org"
+    ];
+    extra-trusted-public-keys = [
+      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
+    ];
   };
 }
