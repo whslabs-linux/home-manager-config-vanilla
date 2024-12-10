@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: {
-  imports = [inputs.nur.hmModules.nur];
+  imports = [inputs.nur.modules.homeManager.default];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "whs";
@@ -85,7 +85,7 @@
     package = pkgs.latest.firefox-nightly-bin;
     profiles."0" = {
       extraConfig = builtins.readFile (inputs."user.js" + /user.js);
-      extensions = with config.nur.repos.rycee.firefox-addons; [
+      extensions = with pkgs.nur.repos.rycee.firefox-addons; [
         keepassxc-browser
         multi-account-containers
         skip-redirect
