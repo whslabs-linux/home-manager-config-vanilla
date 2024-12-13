@@ -41,6 +41,7 @@
     alejandra
     borgmatic
     inputs.fenix.packages.${system}.default.toolchain
+    npins
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -92,6 +93,13 @@
         ublock-origin
       ];
     };
+  };
+  programs.vscode = {
+    enable = true;
+    package = pkgs.vscodium;
+    extensions = with pkgs.vscode-marketplace; [
+      saoudrizwan.claude-dev
+    ];
   };
   home.file.".config/smplayer/smplayer.ini".text = ''
     [advanced]

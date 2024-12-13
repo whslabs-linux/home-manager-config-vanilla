@@ -12,6 +12,7 @@
 
   inputs."user.js".url = "github:arkenfox/user.js";
   inputs.fenix.url = "github:nix-community/fenix";
+  inputs.nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
   inputs.nixpkgs-mozilla.url = "github:mozilla/nixpkgs-mozilla";
   inputs.nur.url = "github:nix-community/nur";
 
@@ -19,6 +20,7 @@
 
   outputs = {
     home-manager,
+    nix-vscode-extensions,
     nixpkgs,
     nixpkgs-mozilla,
     ...
@@ -26,7 +28,10 @@
     system = "x86_64-linux";
     pkgs = import nixpkgs {
       inherit system;
-      overlays = [nixpkgs-mozilla.overlays.firefox];
+      overlays = [
+        nix-vscode-extensions.overlays.default
+        nixpkgs-mozilla.overlays.firefox
+      ];
     };
   in {
     homeConfigurations."whs" = home-manager.lib.homeManagerConfiguration {
