@@ -42,6 +42,7 @@
     borgmatic
     inputs.fenix.packages.${system}.default.toolchain
     npins
+    ollama
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
