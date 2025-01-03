@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: {
-  imports = [inputs.nur.hmModules.nur];
+  imports = [inputs.nur.modules.homeManager.default];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "packer";
@@ -38,6 +38,7 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
+    code-cursor
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
