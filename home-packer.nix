@@ -38,6 +38,7 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
+    inputs.fenix.packages.${system}.default.toolchain
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
