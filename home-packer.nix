@@ -82,7 +82,7 @@
     package = pkgs.latest.firefox-nightly-bin;
     profiles."0" = {
       extraConfig = builtins.readFile (inputs."user.js" + /user.js);
-      extensions = with config.nur.repos.rycee.firefox-addons; [
+      extensions = with pkgs.nur.repos.rycee.firefox-addons; [
         multi-account-containers
         skip-redirect
         ublock-origin
