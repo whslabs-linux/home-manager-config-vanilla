@@ -28,6 +28,9 @@
     system = "x86_64-linux";
     pkgs = import nixpkgs {
       inherit system;
+      config = {
+        allowUnfree = true;
+      };
       overlays = [
         nix-vscode-extensions.overlays.default
         nixpkgs-mozilla.overlays.firefox
