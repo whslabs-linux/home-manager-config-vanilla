@@ -42,7 +42,6 @@
     borgmatic
     inputs.fenix.packages.${system}.default.toolchain
     npins
-    ollama
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -87,20 +86,13 @@
     package = pkgs.latest.firefox-nightly-bin;
     profiles."0" = {
       extraConfig = builtins.readFile (inputs."user.js" + /user.js);
-      extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+      extensions.packages = with pkgs.nur.repos.rycee.firefox-addons; [
         keepassxc-browser
         multi-account-containers
         skip-redirect
         ublock-origin
       ];
     };
-  };
-  programs.vscode = {
-    enable = true;
-    package = pkgs.vscodium;
-    extensions = with pkgs.vscode-marketplace; [
-      saoudrizwan.claude-dev
-    ];
   };
   home.file.".config/smplayer/smplayer.ini".text = ''
     [advanced]
