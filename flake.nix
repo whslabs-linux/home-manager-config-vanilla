@@ -13,7 +13,7 @@
   inputs."user.js".url = "github:arkenfox/user.js";
   inputs.fenix.url = "github:nix-community/fenix";
   inputs.nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
-  inputs.nixpkgs-mozilla.url = "github:mozilla/nixpkgs-mozilla";
+  inputs.nixpkgs-mozilla.url = "github:whs-dot-hk/nixpkgs-mozilla/test";
   inputs.nur.url = "github:nix-community/nur";
 
   inputs."user.js".flake = false;
